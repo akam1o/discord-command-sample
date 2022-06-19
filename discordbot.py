@@ -10,14 +10,9 @@ def res_cmd(cmd, check=False):
         cmd, stdout=subprocess.PIPE,
         check=check, shell=True, text=True).stdout
 
-def res_cmd_lfeed(cmd, check=False):
-    return subprocess.run(
-        cmd, stdout=subprocess.PIPE,
-        check=check, shell=True, text=True).stdout.split('\n')
-
 def _cmd(*args):
     cmd = ' '.join(args)
-    return res_cmd_lfeed(cmd)
+    return res_cmd(cmd)
 
 @bot.event
 async def on_command_error(ctx, error):
